@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "types": [],
+        "moduleResolution": "node",
+        "rootDir": "client",
+        "baseUrl": "client",
+        "outDir": "comp",
+        "target": "es2015"
+    },
+    "include": [
+        "client"
+    ],
+    "exclude": [
+        "typings/main",
+        "typings/main.d.ts",
+        "node_modules"
+    ],
+    "compileOnSave": true
+    
+}

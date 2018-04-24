@@ -1,0 +1,32 @@
+{
+  "name": "ang2_init",
+  "version": "0.0.1",
+  "description": "First Angular2 Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "^5.2.9",
+    "@angular/compiler": "^5.2.9",
+    "@angular/core": "^5.2.9",
+    "@angular/forms": "^5.2.9",
+    "@angular/http": "^5.2.9",
+    "@angular/platform-browser": "^5.2.9",
+    "@angular/platform-browser-dynamic": "^5.2.9",
+    "@angular/router": "^5.2.9",
+    "@types/es6-promise": "^3.3.0",
+    "babel-runtime": "^6.26.0",
+    "commonjs": "0.0.1",
+    "core-js": "^2.5.3",
+    "reflect-metadata": "^0.1.4",
+    "rxjs": "^5.5.7",
+    "zone.js": "^0.8.20"
+  },
+  "devDependencies": {
+    "typescript": "^2.9.0-dev.20180422",
+    "typings": "^2.1.1"
+  }
+}
