@@ -4,7 +4,9 @@
   "description": "First Angular2 Project",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc --rootDir client --outDir comp"
+    "dev": "npm run cleanup && tsc --rootDir client --outDir comp/dist && webpack --watch",
+    "postinstall": "typings install",
+    "cleanup": "rimraf ./comp"
   },
   "author": "",
   "license": "ISC",
@@ -18,16 +20,29 @@
     "@angular/platform-browser-dynamic": "^5.2.9",
     "@angular/router": "^5.2.9",
     "@types/es6-promise": "^3.3.0",
+    "babel-core": "^6.7.2",
+    "babel-eslint": "^7.1.0",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-syntax-decorators": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.6.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.6.0",
+    "babel-preset-es2015": "^6.22.0",
     "babel-runtime": "^6.26.0",
     "commonjs": "0.0.1",
     "core-js": "^2.5.3",
+    "html-webpack-plugin": "^3.2.0",
     "reflect-metadata": "^0.1.4",
     "rxjs": "^5.5.7",
+    "string-replace-loader": "^2.1.1",
     "zone.js": "^0.8.20"
   },
   "devDependencies": {
+    "ts-loader": "^4.3.0",
     "typescript": "^2.9.0-dev.20180422",
     "typings": "^2.1.1",
-    "webpack": "^4.8.3"
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
+    "rimraf": "2.6.2"
   }
 }
