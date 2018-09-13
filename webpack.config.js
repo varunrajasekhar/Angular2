@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -23,7 +23,6 @@ module.exports = {
                             replace: 'import'
                         }
                     },
-                    //'babel-loader',
                     {
                         loader: 'ts-loader',
                         options: {
@@ -34,7 +33,8 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
+            { test: /\.html$/, loader: "html-loader" }
         ]
     },
     resolve: {
@@ -45,8 +45,9 @@ module.exports = {
         /(angular|core|@angular)/,
         path.resolve(__dirname, './client')
         ),
-        // new HTMLWebpackPlugin({
-        //     title: 'Code Splitting'
-        // })
+        new HTMLWebpackPlugin({
+            entry: 'client/index.html',
+            template: 'client/index.html'
+        })
     ] 
 };
