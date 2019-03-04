@@ -11,6 +11,10 @@ module.exports = {
        filename: 'app.bundle.js',
        chunkFilename: 'app.bundle.js'
     },
+    devServer: {
+        port: 8080,
+        hot: true
+    },
     module: {
         rules: [
             {

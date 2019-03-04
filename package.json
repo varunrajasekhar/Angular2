@@ -4,7 +4,7 @@
   "description": "First Angular2 Project",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run cleanup && tsc --rootDir client --outDir comp/dist && webpack --watch",
+    "dev": "npm run cleanup && tsc --rootDir client --outDir comp/dist && webpack-dev-server --hot --progress",
     "postinstall": "typings install",
     "cleanup": "rimraf ./comp",
     "server": "webpack-dev-server --inline --progress"
@@ -31,10 +31,17 @@
     "babel-plugin-transform-runtime": "^6.6.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-runtime": "^6.26.0",
+    "body-parser": "^1.18.3",
     "commonjs": "0.0.1",
     "core-js": "^2.5.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
     "html-webpack-plugin": "^3.2.0",
+    "mongodb": "^3.1.13",
+    "mongojs": "^2.6.0",
+    "mongoose": "^5.4.16",
     "reflect-metadata": "^0.1.4",
+    "reload": "^2.4.0",
     "rxjs": "^5.5.7",
     "string-replace-loader": "^2.1.1",
     "zone.js": "^0.8.20"
@@ -47,7 +54,7 @@
     "typescript": "^2.9.0-dev.20180422",
     "typings": "^2.1.1",
     "webpack": "^4.8.3",
-    "webpack-cli": "^2.1.3",
+    "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.4"
   }
 }
