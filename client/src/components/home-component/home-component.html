@@ -1,0 +1,32 @@
+<main style="min-height: 1500px">
+  <div class="title__wrapper">
+    <h1 class="title">
+      <div class="title-span__parent-wrapper">
+        <div class="title-span__wrapper">
+          <span class="title-span__1">{{title_1}}</span>
+          <span class="title-span__2">{{title_2}}</span>
+          
+        </div>
+      </div>
+    </h1>
+  </div>
+  <div class="nav__wrapper" [ngClass]="{'nav__wrapper--fixed': isNavFixed}" >
+    <div class="nav">
+      <div class="">
+        <div>Home</div>
+        <div>Menu</div>
+        <div>Breakfast - Brunch</div>
+      </div>
+      <div class="">myname</div>
+      <div class="">
+        <div>Home</div>
+        <div>Menu</div>
+        <div>Breakfast - Brunch</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <h2 class="suffix"><i>{{suffix}}</i></h2>
+  <input #searchInput [value]="search" (keyup)="onKeyUp($event)"/>
+  <button #click (click)="onClick($event)">Click Me</button> -->
+</main>
