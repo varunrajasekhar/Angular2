@@ -58,21 +58,23 @@ router.delete('/empsRemoveData', (req, res, next) => {
 
 // Post or Create new data
 router.post('/postEmpsData', (req, res, next) => {
-  console.log(req)
-  EmployeeDetailsCollection.insertMany([{_id:54},{_id:67}], function(err) {
-    if (err) {
-      res.send(err.errmsg);
-    }
-    res.json([{_id:54},{_id:67}]);
-  });  
+  res.send(req.body);
+  console.log(req.body);
+  // EmployeeDetailsCollection.insertMany([], function(err) {
+  //   if (err) {
+  //     res.send(err.errmsg);
+  //   }
+  //   res.json([{_id:54},{_id:67}]);
+  // });
+    
 });
 
 // Update existing Employee data
 router.put('/updateEmpsData', (req,res, next) => {
-  EmployeeDetailsCollection.findByIdAndUpdate({_id: 2}, {name: {firstName: 'nurav'}}, (err) => {
+  EmployeeDetailsCollection.findOneAndReplace({_id: 2}, {name: {firstName: 'nurav'}}, (err) => {
     res.send(err);
   });
-  res.json([{_id:54},{_id:67}])
+  
 });
 
 // Get employee Quiz questions
