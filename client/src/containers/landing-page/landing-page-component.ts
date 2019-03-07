@@ -1,10 +1,9 @@
 import { Component,Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { DH_CHECK_P_NOT_SAFE_PRIME } from 'constants';
 
 @Component({
     selector: 'load-app',
-    templateUrl: 'client/src/components/landing-page/landing-page.html'
+    templateUrl: 'client/src/containers/landing-page/landing-page.html'
 })
 
 @Injectable()
