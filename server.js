@@ -3,8 +3,8 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
-var index = require('./routes/index');
-var tasks = require('./routes/tasks');
+var index = require('./server-routes/index');
+var tasks = require('./server-routes/tasks');
 
 var app = express();
 
@@ -34,7 +34,7 @@ var corsOptions = {
     }
   }
 }
-app.use(cors(corsOptions));
+app.use(cors(/*corsOptions*/));
 
 
 

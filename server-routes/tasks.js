@@ -42,6 +42,7 @@ router.get('/empsData/:id', (req, res, next) => {
     if (err) {
       res.send(err);
     }
+  
     res.json(data);
   });
 });

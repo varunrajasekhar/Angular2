@@ -8,12 +8,14 @@ module.exports = {
     target: "web",
     output: {
        path: path.resolve(__dirname, './comp'),
+       publicPath: 'http://localhost:8080/',
        filename: 'app.bundle.js',
        chunkFilename: 'app.bundle.js'
     },
     devServer: {
         port: 8080,
-        hot: true
+        hot: true,
+        historyApiFallback: true
     },
     module: {
         rules: [

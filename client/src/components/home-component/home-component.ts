@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home-app',
@@ -17,20 +18,20 @@ export class HomeComponent implements OnInit {
   name : string
   
 
-  constructor() {
-    window.addEventListener('scroll', () => {      
-      this.myNavEl = <HTMLElement>document.getElementsByClassName('nav__wrapper')[0];
-      if(this.myNavEl.offsetHeight <= window.scrollY) {
-        this.myNavEl.style.position = 'fixed';
-        this.myNavEl.style.top = '0';        
-        this.myNavEl.style.margin = '0 auto';
+  constructor(private router: Router) {
+    // window.addEventListener('scroll', () => {      
+    //   this.myNavEl = <HTMLElement>document.getElementsByClassName('nav__wrapper')[0];
+    //   if(this.myNavEl.offsetHeight <= window.scrollY) {
+    //     this.myNavEl.style.position = 'fixed';
+    //     this.myNavEl.style.top = '0';        
+    //     this.myNavEl.style.margin = '0 auto';
         
-      } else {
-        this.myNavEl.style.position = '';
-        this.myNavEl.style.top = '';
-        this.myNavEl.style.marginTop = '5rem';
-      }
-    });
+    //   } else {
+    //     this.myNavEl.style.position = '';
+    //     this.myNavEl.style.top = '';
+    //     this.myNavEl.style.marginTop = '5rem';
+    //   }
+    // });
   }
 
   ngAfterViewInit() {
@@ -45,14 +46,12 @@ export class HomeComponent implements OnInit {
   }
 
   onKeyUp(e) {
-    console.log(e);
     this.title_1 = e.target.value;
     
   }
 
   onClick(e) {
-    console.log(e);
-    console.dir(e.target);
-    console.log(e.target.value);
+    console.log(this);
+    this.router.navigate(['./login-page']);
   }
 }
