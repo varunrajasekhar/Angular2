@@ -6,12 +6,15 @@ import {APP_BASE_HREF} from '@angular/common';
 import { LandingPageContainer } from './containers/landing-page-container/landing-page-container';
 import { HomeComponent } from './components/home-component/home-component';
 import { LoginPageContainer } from './containers/login-page-container/login-page-container';
+import { LoginComponent } from './components/login-user-component/login-user-component'
+import { SignUpComponent } from './components/signup-user-component/signup-user-component';
 import { LoadApp } from './load-app/load-app';
 
 
 const appRoutes: Routes = [
   { path: 'landing-page', component: LandingPageContainer },
   { path: 'login-page', component: LoginPageContainer },
+  { path: 'signup-page', component: SignUpComponent },
   { path: '',
     redirectTo: '/landing-page',
     pathMatch: 'full'
@@ -28,7 +31,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule
   ], 
-  declarations: [LoadApp, LandingPageContainer, HomeComponent, LoginPageContainer], 
+  declarations: [LoadApp, LandingPageContainer, HomeComponent, LoginPageContainer, LoginComponent, SignUpComponent], 
   //bootstrap: [LandingPageContainer, LoginPageContainer],
   bootstrap: [LoadApp],
   providers: [{provide: APP_BASE_HREF, useValue : '/' }]

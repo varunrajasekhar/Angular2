@@ -17,14 +17,20 @@ var Schema = mongoose.Schema;
 
 
 var EmployeeModelSchema = new Schema({
-  _id: Number,
+  // _id: Number,
   title: String,
   name: Object,
-  address: Object,
+  address:  { type: Schema.Types.ObjectId, ref: 'emp_address_collections' },
   designation: Object
 });
 
+var EmployeeAddressSchema = new Schema({
+  _creator : { type: Schema.Types.ObjectId, ref: 'emp_details_collections' },
+  address: Object
+});
+
 const EmployeeDetailsCollection = mongoose.model('emp_details_collections', EmployeeModelSchema);
+const EmployeeAddressCollection = mongoose.model('emp_address_collections', EmployeeAddressSchema);
 
 // Get All Employees
 router.get('/empsData', (req, res, next) => {
@@ -37,14 +43,31 @@ router.get('/empsData', (req, res, next) => {
 });
 
 // Get One Employee Information based on Id
-router.get('/empsData/:id', (req, res, next) => {
-  EmployeeDetailsCollection.find({_id: parseInt(req.params.id)}, (err, data) => {
+// router.get('/empsData/:id', (req, res, next) => {
+//   EmployeeDetailsCollection.find({_id: mongoose.Types.ObjectId(req.params.id)}, (err, data) => {
+//     if (err) {
+//       res.send(err);
+//     }
+  
+//     res.json(data);
+//   });
+// });
+
+// Get One Employee Information by Name or email
+router.get('/empsData/:name', (req, res, next) => {
+  EmployeeDetailsCollection.find({title: (req.params.name)}).populate('address').exec((err, data) => {
     if (err) {
       res.send(err);
     }
-  
     res.json(data);
   });
+  // , (err, data) => {
+  //   if (err) {
+  //     res.send(err);
+  //   }
+  
+  //   res.json(data);
+  // });
 });
 
 // Delete an employee
@@ -59,14 +82,48 @@ router.delete('/empsRemoveData', (req, res, next) => {
 
 // Post or Create new data
 router.post('/postEmpsData', (req, res, next) => {
-  res.send(req.body);
-  console.log(req.body);
-  // EmployeeDetailsCollection.insertMany([], function(err) {
-  //   if (err) {
-  //     res.send(err.errmsg);
-  //   }
-  //   res.json([{_id:54},{_id:67}]);
-  // });
+  if (Array.isArray(req.body) && typeof req.body === 'object') {
+    EmployeeDetailsCollection.insertMany(req.body, function(err) {
+      if (err) {
+        res.send(err.errmsg);
+      }
+      res.send('send');
+    });
+  } else {
+    var empAddRecord = new EmployeeAddressCollection({address: req.body.address});
+    
+    empAddRecord.save()
+    .then(result => {
+      //res.send(result);
+      
+      // save empRecord
+
+      req.body.address = empAddRecord._id;
+      var empRecord = new EmployeeDetailsCollection(req.body);
+
+
+
+      empRecord.save()
+      .then(result => {
+        //res.send(result);
+      })
+      .catch((err) => {
+        //res.send(err);
+      });
+    })
+    .catch((err) => {
+     // res.send(err);
+    });
+
+    // empRecord.save()
+    // .then(result => {
+    //   res.send(result);
+    // })
+    // .catch((err) => {
+    //   res.send(err);
+    // });
+  }
+  
     
 });
 
