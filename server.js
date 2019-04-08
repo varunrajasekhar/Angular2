@@ -25,6 +25,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //allow access origin for all urls/ports/origins - remove corsOptions
 var whitelist = ['http://localhost:8080'];
+
+// you can black list the cors urls which request data from outside.
+// currently only 8080 is allowed to request data from 9090
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {

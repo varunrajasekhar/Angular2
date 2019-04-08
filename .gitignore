@@ -3,3 +3,4 @@ typings/
 comp/
 package-lock.json
 settings.json
+*.log
