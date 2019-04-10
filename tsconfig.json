@@ -11,6 +11,7 @@
         "outDir": "comp/dist",
         "target": "es5",
         "lib": ["es5", "es6", "dom"],
+        //"resolveJsonModule": true,
         "typeRoots": [
             "node_modules/@types"
          ]

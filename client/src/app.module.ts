@@ -13,12 +13,15 @@ import { LoadApp } from './load-app/load-app';
 import { FormsModule } from '@angular/forms';
 
 import { SignUpService } from './services/signup.service';
+import { NavBarComponent } from './components/nav-bar-component/nav-bar-component';
+import { MenuPageContainer } from './containers/menu-page-container/menu-page-container';
  
 
 const appRoutes: Routes = [
   { path: 'landing-page', component: LandingPageContainer },
   { path: 'login-page', component: LoginPageContainer },
   { path: 'signup-page', component: SignUpComponent },
+  { path: 'menu-page', component: MenuPageContainer },
   { path: '',
     redirectTo: '/landing-page',
     pathMatch: 'full'
@@ -37,8 +40,7 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule
   ], 
-  declarations: [LoadApp, LandingPageContainer, HomeComponent, LoginPageContainer, LoginComponent, SignUpComponent], 
-  //bootstrap: [LandingPageContainer, LoginPageContainer],
+  declarations: [LoadApp, LandingPageContainer, HomeComponent, LoginPageContainer, LoginComponent, SignUpComponent, NavBarComponent, MenuPageContainer],
   bootstrap: [LoadApp],
   providers: [{provide: APP_BASE_HREF, useValue : '/' }, SignUpService]
 }) 
