@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
-const UserAddress = require('../models/user_address.model');
+const user_address = require('../server-models/user_address.model');
 
 var UserSchema = new Schema({
   title:  {
@@ -21,12 +21,12 @@ var UserSchema = new Schema({
   },
   address: {
     type: Schema.Types.ObjectId,
-    ref: 'UserAddress'
+    ref: 'user_address'
   },
-  userOrders: { 
-    type: Schema.Types.ObjectId,
-    ref: 'UserOrders'
-  },
+  // userOrders: { 
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'UserOrders'
+  // },
   phoneNumber: {
     type: String,
     required: false,

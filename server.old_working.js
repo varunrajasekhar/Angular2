@@ -2,24 +2,13 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-const mongoose = require('mongoose');
 
 var index = require('./server-routes/index');
-var routes = require('./server-routes/routing.js');
+var tasks = require('./server-routes/tasks_for_old_working_server');
 
 var app = express();
 
 var port = 9090;
-
-//mongoose connection moved from routing to here
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true });
-mongoose.Promise = global.Promise;
-
-mongoose.connection.once('open', function() {
-  console.log('connection has been made');
-}).on('error', function(error) {
-  console.log('connection error', error);
-});
 
 // view engine
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +17,7 @@ app.engine('html', require('ejs').renderFile);
 
 //set static folder
 //app.use(express.static, path.join(__dirname, 'client'));
+
 
 // //body parser middleware
 app.use(bodyParser.json());
@@ -46,14 +36,16 @@ var corsOptions = {
       callback(new Error('Not allowed by CORS'))
     }
   }
-};
-
+}
 app.use(cors(/*corsOptions*/));
+
+
+
 app.use('/', index);
-app.use('/api', routes);
+app.use('/api', tasks);
 
 app.listen(port, "0.0.0.0", function() {
   console.log('server started on '+port);
-});
+})
 
-app.use('reload', require('reload'));
+app.use('reload', require('reload'))
