@@ -1,7 +1,7 @@
 var UserDetailsCollection = require('../server-models/user.model');
 var UserAddressCollection = require('../server-models/user_address.model');
 
-exports.findAll = (req, res, next) => {
+exports.findAll = (req, res) => {
   UserDetailsCollection.find({}).populate('address').exec((err, data) => {
     
     if (err) {
