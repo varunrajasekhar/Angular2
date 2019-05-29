@@ -2,21 +2,12 @@ var UserDetailsCollection = require('../server-models/user.model');
 var UserAddressCollection = require('../server-models/user_address.model');
 
 exports.findAll = (req, res, next) => {
-  var responseData = [];
-  UserDetailsCollection.find({}, (err, data) => {
-    responseData = data;
-    responseData.forEach((element, index) => {
-      UserAddressCollection.findById(element.address, function(err, add_data) {
-        console.log(index);
-        console.log(element);
-        console.log(add_data);
-        responseData[index].address = Object.assign({}, add_data);
-      });
-    });
+  UserDetailsCollection.find({}).populate('address').exec((err, data) => {
+    
     if (err) {
       res.send(err);
     }
-    res.json(responseData);
+    res.json(data);
   });
 };
 
