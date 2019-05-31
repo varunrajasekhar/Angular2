@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
-const user_address = require('../server-models/user_address.model');
+// const user_address = require('../server-models/user_address.model');
 
 var UserSchema = new Schema({
   title:  {
