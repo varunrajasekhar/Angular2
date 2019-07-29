@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 // const user_address = require('../server-models/user_address.model');
 
-var UserSchema = new Schema({
+var UsersDetilsSchema = new Schema({
   title:  {
     type: String,
     required: false
@@ -43,4 +43,4 @@ var UserSchema = new Schema({
   }  
 });
 
-module.exports = mongoose.model('user_details', UserSchema);
+module.exports = mongoose.model('users_details', UsersDetilsSchema);

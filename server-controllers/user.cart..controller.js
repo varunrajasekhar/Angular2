@@ -1,5 +1,5 @@
-var UserCartCollection = require('../server-models/user_cart.model');
-var ProductCollection = require('../server-models/product.model');
+var UserCartCollection = require('../server-models/users_carts.model');
+var ProductCollection = require('../server-models/products.model');
 
 //find user by id
 exports.updateCart = (req, res) => {

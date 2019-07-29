@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const user_details = require('../server-models/user.model');
+const user_details = require('./users_details.model');
 
 var UserAddressSchema = new Schema({
   _creator : { type: Schema.Types.ObjectId, ref: 'user_details' },
@@ -12,6 +12,6 @@ var UserAddressSchema = new Schema({
     type: Number,
     required: true
   }
-});
+}, {collecion: 'user'});
 
-module.exports = mongoose.model('user_address', UserAddressSchema);
+module.exports = mongoose.model('user_addresses', UserAddressSchema);

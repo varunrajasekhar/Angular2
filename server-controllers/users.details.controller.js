@@ -1,5 +1,5 @@
-var UserDetailsCollection = require('../server-models/user.model');
-var UserAddressCollection = require('../server-models/user_address.model');
+var UserDetailsCollection = require('../server-models/users_details.model');
+var UserAddressCollection = require('../server-models/user_addresses.model');
 
 //find user by id
 exports.findUserById = (req, res) => {
