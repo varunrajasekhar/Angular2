@@ -32,4 +32,16 @@ router.post('/updateCartData', userCart.updateCart);
 
 router.post('/insertMultipleProducts', product.insertMultipleProducts);
 
+router.get('/getData', myRe);
+
+function myRe(req, res) {
+  const responseObject = {};
+  responseObject.status = 429;
+  responseObject.statusText = 'Not allw';
+  res.status(429);
+  res.send(responseObject);
+}
+
+// router.post
+
 module.exports = router;

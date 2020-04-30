@@ -1,6 +1,7 @@
 import { Component,Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import axios from 'axios';
 
 @Component({
     selector: 'landing-page-container',
@@ -30,7 +31,11 @@ export class LandingPageContainer {
     }
     
     btnClick() {
-        console.log(this)
+        try {const  a=  axios.get('http://localhost:9090/api/getData');
+        console.log(a);
+        } catch(e) {
+            console.log(e.status);
+        }
     }
 
 }
